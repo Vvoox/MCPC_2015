@@ -27,89 +27,69 @@ int main(){
 
         }
         }
-    int length ;
+   int length ;
 
-    if(nV % 2 == 0){
-        length=nH + nV ;
-        int slides[length][2];
+  //  if(nV % 2 == 0){
+      length=nH + nV ;
+      int slides[length];
         for(int i ; i<N ; i++){
            // if (orientation[i]=='H' && orientation[i+1]=='H'){ // first attempt comp between H and H
-            for(int j=i+1 ; j<N; j++){
-                if(i+1==N) break;
-                else {
+            for(int j=1 ; j<N; j++){
 
-                    for(int k ; k<Tmax ;k++){
+                    for(int k=0 ; k<Tmax ;k++){
 
-                        //if(i+1==N) break;
+                        for(int l=0 ; l<Tmax ; l++){
 
-                         if(Tags[i][k]==Tags[j][k]){
 
-                             slides[i][0]=i;
-                             slides[i+1][0]=i+1;
+                             if(  Tags[i][k]==Tags[j][l]){
+                                 for(int h ; h<length ; h++){
+                                     slides[h]=i;
+                                     slides[h+1]=j;
+
+                                 }
+
 
                             }
-                         
-                            else
-                                break;
-                    }
+                             else
+                                 break;
+                        }                       
 
-                }
             }
-        }
+
+            \
+           /* if(Tags[0][0]==Tags[1][1]){
+                cout<<"there is linking tag between image "<<endl;
+            }
+            else {
+                cout<<"NO connection Tags"<<endl;
+            }*/
+        //}
 
        //   if (orientation[i]=='H' && orientation[i+1]=='V') // first attempt comp between H and V
-        cout<<length ;
+     /*   cout<<length<<endl; ;
         for(int i ; i<length ; i++){
+                cout<<slides[i]<<endl;
 
-            //for (int j ; j<1 ; j++){
-
-                cout<<slides[i][0]<<endl;
-            //}
-           // cout<<"\n";
-
-
-
-
-
+        }*/
 
         }
 
-
-
-
-
-
-
-
-        }
     /*else
 
         nslides=nH + (nV+1)/2;*/
 
 
     }
+    cout<<"The collection has "<<length<<" photos"<<endl;
+    for(int i=0;i<length;i++){
+        cout<<slides[i]<<endl;
 
-
-
-
-
-
-
-   /* cout<<"The collection has "<<N<<" photos"<<endl;
-    for(int k=0;k<N;k++){
-        cout<<"Photo "<<k<<" is "<< orientation[k] <<" and has tags "<<"[ ";
-        for(int l=0;l<Tmax ; l++){
-
-            cout<<Tags[k][l]<<","<<"\t" ;
 
     }
-    cout<<"]";
-    cout<<"\n";
+
+  }
 
 
-
-
-    }*/
 
 
 
