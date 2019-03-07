@@ -1,9 +1,13 @@
 //still work on it , final solution soon .
 #include <iostream>
-#include <string.h>
+#include <string>
+//#include<fstream>
+
 
 using namespace std;
 int main(){
+  //  ifstream myfile;
+   // myfile.open ("a_example.txt");
     int N;
     int Tmax ;
     cin>>N ;
@@ -44,7 +48,7 @@ int main(){
       for(int i=0;i<length;i++){
           //slides[i]=0;
           cout<<slides[i]<<endl;}*/
-    slides[0][0]=0;
+   slides[0][0]=0;
    int cnt=0;
      for(int i=0 ; i<N ; i++){
 
@@ -54,31 +58,57 @@ int main(){
          break;}
             // if (orientation[i]=='H' && orientation[i+1]=='H'){ // first attempt comp between H and H
             for(int l=0 ; l<Tmax; l++){
-                    for(int j=0 ; j<N ;j++){
+                if(Tags[i][l].size()!=0 || Tags[i][l].size()!=0  ){
+
+                    for(int j=1 ; j<N ;j++){
+                      //  if(j==0) break;
+                       // else {
                            for(int k=0 ; k<Tmax ; k++){
                          //  for(int h=1 ; h<length ; h++){ // boucle for fill in slides tableau ;
-                               if( Tags[i][l]==Tags[j][k] ){
-                                     if(i!=j && i<j){
-                                             slides[cnt][0]=i;
-                                             slides[cnt][1]=j;
-                                             cnt++;
+                               //for(int w ; w<34 ; w++){
+                                  // if(Tags[i][k]!= word[w]) break;
+                                   //else{
+                                       if( Tags[i][l]==Tags[j][k] ){
+
+                                             if( i!=j  ){
+
+                                                     slides[cnt][0]=i;
+                                                     slides[cnt][1]=j;
+                                                     cnt++;
+
+
+                                                     //cout<<slides[i][0]<<"\t"<<slides[i][1]<<endl;
+                                                    // cout<< Tags[i][l].size()<<endl;
+                                             }
+
+                                             else break;
+                                    // }
+                                      //else break;
+
                                          //cout<<"test" << i<<" "<< j <<endl;
                                      }
-                                     else break;
+
                                          //cout<<"there is no linking Tags between slides"<<endl;
-                                      }
+                                     // }
                                  }
+                       // }
                     }
+                }
+                else break;
             }
             }
     cout<<endl;
    cout<<"The slideshow has "<<length<<" slides"<<endl;
-   for(int l=0 ; l<N ; l++){
+   //cout<<word[10]<<endl;
+  for(int l=0 ; l<length ; l++){
          // cout<<slides[l];
               cout<<slides[l][0]<<"\t"<<slides[l][1];
+             // cout<<word[l];
               cout<<endl;
 
+
   }
+
 
 }
 
@@ -99,3 +129,11 @@ for(int i ; i<length ; i++){
     cout<<slides[i]<<endl;
 
 }*/
+
+
+
+
+
+
+
+
