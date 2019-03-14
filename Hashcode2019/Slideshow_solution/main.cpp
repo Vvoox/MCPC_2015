@@ -1,12 +1,26 @@
-//still work on it , final solution soon .
 #include <iostream>
 #include <string>
 //#include<fstream>
 
 
 using namespace std;
+
+void Permut(string *tags1,string *tags2, int n){
+    string temp;
+    //int Num;
+    for (int i = 0 ; i<n ; i++){
+
+            temp = tags1[i];
+            tags1[i]=tags2[i];
+            tags2[i]=temp;
+            //Num = line_one;
+           // line_one = line_two;
+           // line_two = Num;
+    }
+
+}
 int main(){
-  //  ifstream myfile;
+   //ifstream myfile;
    // myfile.open ("a_example.txt");
     int N;
     int Tmax ;
@@ -16,9 +30,14 @@ int main(){
     string Tags[N][99];
     int nH=0;
     int nV=0;
+    int cnt=1;
+    string Tagsplus[1][99];
+
+
 
     for(int i=0;i<N;i++){
-        cin>>orientation[i]>>M[i];
+        cin>>orientation[i];
+        cin>>M[i];
         int Mi=M[i];
         char ori=orientation[i];
         if (ori=='H') nH++;
@@ -27,90 +46,134 @@ int main(){
         if (Tmax<Mi){
             Tmax=Mi;}
 
-        for(int j=0;j<Mi;j++){
-            cin>>Tags[i][j];//fill in all tags in tag's tableau;
-
+        for(int l=0 ; l<Mi ; l++){
+            cin>>Tags[i][l];
         }
-        }
- /*   for(int l ; l<N ; l++){
-        for(int k ; k<Tmax ; k++){
-        cout<<Tags[l][k];
-        }
-    cout<<endl;}*/
-     int length ;
-  //  if(nV % 2 == 0){
-     length= nH + nV ;
-     int slides[length][2];
-    // slides[0]=0;
-   /*  for(int q ; q<length ; q++){
-         cout<<slides[q]<<endl;}
-      //for(int i ; i<length ; i++){  slides[i]=0;}//Initialize all elements of table to 0;
-      for(int i=0;i<length;i++){
-          //slides[i]=0;
-          cout<<slides[i]<<endl;}*/
-   slides[0][0]=0;
-   int cnt=0;
-     for(int i=0 ; i<N ; i++){
+        }//fill in all tags in tag's tableau;
+ /*               if(Tags[i][l].size()!=0  ){
+                    for(int j=0 ; j<N ;j++){
+                        for(int k=0 ; k<Tmax ; k++){
+                            if( Tags[i][l]==Tags[j][k] && Tags[j][k].size()!=0 ){
+                                if( i!=j  ){
+                                    for(int n=0 ; n<Tmax ; n++){
+                                       // if(i==N) break;
+                                        //else
+                                           Tags[i+1][n]=Tagsplus[0][n];
+                                           Tagsplus[0][n]=Tags[j][n];
+                                          // Tags[j][n]=Tagsplus[j][n];
+                                    }
 
-         if( length == 1 ){
-         slides[0][0]=0;
-         cout<<slides[0][0]<<endl;
-         break;}
-            // if (orientation[i]=='H' && orientation[i+1]=='H'){ // first attempt comp between H and H
-            for(int l=0 ; l<Tmax; l++){
-                if(Tags[i][l].size()!=0 || Tags[i][l].size()!=0  ){
+                                    //slides[cnt]=j;
+                                  //  cnt++;
 
-                    for(int j=1 ; j<N ;j++){
-                      //  if(j==0) break;
-                       // else {
-                           for(int k=0 ; k<Tmax ; k++){
-                         //  for(int h=1 ; h<length ; h++){ // boucle for fill in slides tableau ;
-                               //for(int w ; w<34 ; w++){
-                                  // if(Tags[i][k]!= word[w]) break;
-                                   //else{
-                                       if( Tags[i][l]==Tags[j][k] ){
-
-                                             if( i!=j  ){
-
-                                                     slides[cnt][0]=i;
-                                                     slides[cnt][1]=j;
-                                                     cnt++;
-
-
-                                                     //cout<<slides[i][0]<<"\t"<<slides[i][1]<<endl;
-                                                    // cout<< Tags[i][l].size()<<endl;
-                                             }
-
-                                             else break;
-                                    // }
-                                      //else break;
-
-                                         //cout<<"test" << i<<" "<< j <<endl;
-                                     }
-
-                                         //cout<<"there is no linking Tags between slides"<<endl;
-                                     // }
-                                 }
-                       // }
+                                }
+                                else break;
+                            }
+                            else break;
+                        }
                     }
                 }
                 else break;
-            }
-            }
-    cout<<endl;
-   cout<<"The slideshow has "<<length<<" slides"<<endl;
-   //cout<<word[10]<<endl;
-  for(int l=0 ; l<length ; l++){
-         // cout<<slides[l];
-              cout<<slides[l][0]<<"\t"<<slides[l][1];
-             // cout<<word[l];
-              cout<<endl;
+
+
+
+        }
+        }
+        */
+
+   int length ;
+  //  if(nV % 2 == 0){
+   length= nH + nV ;
+   int slides[99];
+   slides[0]=0;
+//   int slides[length][2];
+//   slides[0][0]=0;
+//   int cnt=0;
+   int nmb;
+  for(int i=0 ; i<N ; i++){
+
+       if( N == 1 ) break;
+
+       else {
+            for(int l=0 ; l<Tmax; l++){
+                //string tagTemp = Tags[i][l];
+                if(Tags[i][l].size() != 0) {
+                    for(int j =1; j < N ; j++) {
+                        if(i==j) break;
+
+                       else {
+
+                            for(int k = 0; k < Tmax; k++) {
+                                if (Tags[i][l] == Tags[j][k] ) {
+
+                                    if(j-i==1){
+                                        cout<<" there is one line between i and j"<<endl;
+                                        slides[cnt]=j;
+                                        cnt++;
+                                        break;
+                                    }
+                                    else {
+                                        cout<<"there is more than one line between i and j"<<endl;
+                                        Permut( Tags[i+1],Tags[j], N);
+                                        //cout<<j<<"\n";
+                                        nmb=i+1;
+                                        slides[cnt]=j;
+
+                                        slides[j]=nmb;
+
+                                        cnt++;
+                                    }
+                        }
+                        else {
+                                    slides[cnt]=j;
+                                    cnt++;
+                                    break;
+                    }
+                        }
+
+                        }
+               }
+
+         }
+                else {
+                    slides[cnt]=i;
+                    cnt++;
+                    break;}
+    }
+ }
+      // cout<<i<<"\t";
+  }
+  // int length =nH + nV ;
+   cout<<endl;
+   cout<<N-1<<endl;
+  for(int i=0 ; i<N ; i++){
+       cout<<slides[i]<<"\t";
+      for(int j=0 ;j<Tmax ; j++ ){
+          //if( length == 1 ){
+                  //cout<<slides[0][0]<<endl;
+                  //  cout<<slides[0]<<endl;
+                 // break; }
+              //  else {
+           cout<<Tags[i][j]<<"\t";
+
+      }
+
+
+      cout<<endl;
+//      cout<<i<<"\n";
+
+
+    //  else {
+
+           //cout<<slides[l][0]<<"\t"<<slides[l][1]<<endl;
+       //    cout<<slides[l]<<endl;
+      }
 
 
   }
 
 
-}
+
 
 
 
@@ -129,7 +192,6 @@ for(int i ; i<length ; i++){
     cout<<slides[i]<<endl;
 
 }*/
-
 
 
 
