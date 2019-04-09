@@ -71,18 +71,19 @@ public class Main {
             }
         }
         System.out.println(x_s+" "+y_s+"\n"+x_t+" "+y_t);
-        System.out.println(cost(x_s , y_s , x_t ,y_t));
+        System.out.println(cost(x_s , y_s , x_t ,y_t,symbol));
     }
-    public static int cost(int x0 , int y0 , int x1 , int y1){
+    public static int cost(int x0 , int y0 , int x1 , int y1,String[] symbol[]){
         int cost=0;
 
-        for(int i=0 ; i<r ; i++){
+       /* for(int i=0 ; i<r ; i++){
 
             for(int j=0 ; j<c ; j++){
 
                 if (x0<x1 && y0<y1){
                     while(x0<x1){
                         cost+=1;
+
                         x0++; }
                     while(y0<y1){
                         cost+=1;
@@ -116,6 +117,59 @@ public class Main {
             }
         }
         System.out.println("Your cost to reach the target is : ");
+        return cost;*/
+        if (x0<=x1 && y0<=y1) {
+            for (int i = x0; i <= x1; i++) {
+                for (int j = y0; j <= y1; j++) {
+
+                    if (symbol[i][j].equals(".")) {
+                        cost += 1;
+                    }
+                    if (symbol[i][j].equals("K")) {
+                        cost += 0;
+                    }
+                }
+            }
+        }
+        if (x0>=x1 && y0>=y1) {
+            for (int i = x1; i <= x0; i++) {
+                for (int j = y1; j <= y0; j++) {
+
+                    if (symbol[i][j].equals(".")) {
+                        cost += 1;
+                    }
+                    if (symbol[i][j].equals("K")) {
+                        cost += 0;
+                    }
+                }
+            }
+        }
+        if (x0<=x1 && y0>=y1) {
+            for (int i = x0; i <= x1; i++) {
+                for (int j = y1; j <= y0; j++) {
+
+                    if (symbol[i][j].equals(".")) {
+                        cost += 1;
+                    }
+                    if (symbol[i][j].equals("K")) {
+                        cost += 0;
+                    }
+                }
+            }
+        }
+        if (x0>=x1 && y0<=y1) {
+            for (int i = x1; i <= x0; i++) {
+                for (int j = y0; j <= y1; j++) {
+
+                    if (symbol[i][j].equals(".")) {
+                        cost += 1;
+                    }
+                    if (symbol[i][j].equals("K")) {
+                        cost += 0;
+                    }
+                }
+            }
+        }
         return cost;
 
 
