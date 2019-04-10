@@ -1,4 +1,4 @@
-This problem is ACM international collegiate programming contest, Moroccan Collegiate .
+#This problem is ACM international collegiate programming contest, Moroccan Collegiate .
 The aim is to align all the edge's pool , by calculating the dimensions of the pool , we've a cube pool so the volume is X^3=Volume
 We need just to import the Class lang.Math.*; (i made it in java), and to calculat teh X .
 
