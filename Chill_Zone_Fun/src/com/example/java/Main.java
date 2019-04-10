@@ -15,14 +15,14 @@ public class Main {
         System.out.println("Hello in the Chil Zone Fun problem");
         //System.out.print("Enter your T number of cases : ");
         Scanner test = new Scanner(System.in);
-        int T = test.nextInt();
+        int T = test.nextInt(); // insert the number of case
         //System.out.print("Enter your r the number of lines :  ");
         for (int i = 0; i < T; i++) {
             Scanner line = new Scanner(System.in);
-            int r = line.nextInt();
+            int r = line.nextInt(); //insert the number of lines
             //System.out.print("Enter your c the number of grids : ");
             Scanner grid = new Scanner(System.in);
-            int c = grid.nextInt();
+            int c = grid.nextInt();//number of symbol you've;
             chill_zone_fun(T, r, c);
             counter++;
         }
@@ -31,10 +31,10 @@ public class Main {
 
     public static void chill_zone_fun(int T, int r, int c) {
         String symbol[][] = new String[r][c];
-        System.out.println("Symbols suggest is {'.','*','K','S','T'} : ");
+        //System.out.println("Symbols suggest is {'.','*','K','S','T'} : ");
         Scanner tab = new Scanner(System.in);
 
-        for (int i = 0; i < r; i++) {
+        for (int i = 0; i < r; i++) {//boucle for insert the symbol you've
 
             for (int j = 0; j < c; j++) {
 
@@ -45,7 +45,7 @@ public class Main {
     stplace(T,r, c, symbol);
 
 }
-    public static void stplace(int T ,int r , int c,String[] symbol[]){
+    public static void stplace(int T ,int r , int c,String[] symbol[]){//this method calculate the position of S and T and return in the the next;
 
         int x_s=0 , y_s=0 , x_t=0, y_t=0 ;
 
@@ -66,9 +66,9 @@ public class Main {
        // System.out.println(x_s+" "+y_s+"\n"+x_t+" "+y_t);
         cost(T , r, c, x_s , y_s , x_t ,y_t,symbol);
     }
-    public static void cost(int T,int r,int c , int x0 , int y0 , int x1 , int y1,String[] symbol[]){
+    public static void cost(int T,int r,int c , int x0 , int y0 , int x1 , int y1,String[] symbol[]){//this method calculate the cost to reach the target from s
        int cost= 0;
-       int[] stdcost =new int[T];
+       int[] stdcost =new int[T];//table return the value of cost each case
 
            if (x0 <= x1 && y0 <= y1) {
                for (int i = x0; i <= x1; i++) {
@@ -80,7 +80,7 @@ public class Main {
                    }
                    if (symbol[i][y0].equals("*")) {
                        y0++;
-                       if(y0==r+1)cost=-1;
+                       if(y0==r+1)cost=-1;//there is no road to reach the Target
                    }
                    //else cost = -1;
                }
