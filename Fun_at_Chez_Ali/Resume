@@ -1,3 +1,3 @@
 #Fun At Chez Ali
-the problem is based on calculating the shortest distance beteween person , you can inmagin like a node and arrow between it , the idea is to made a matrix of this nodes and if there is some relation or what we call cost , you just need to insert it in the matrix ,
+the problem is based on calculating the shortest distance between person , you can imagin like a node and arrow between it , the idea is made a matrix of this nodes and if there is some relation or what we call cost , you just need to insert it in the matrix ,
 the way you can see the matrix like an explecation and relations between all nodes .
