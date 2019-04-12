@@ -1,0 +1,4 @@
+#Man_in_the_middle
+This problem based on coded a password and recoded , by helping Bob to decod this password you should use fuction given in the problem , after you should follow the roles 
+first of all you need to insert length of the plaintest and the H value and also the M . The idea is to insert this value like a table value and take you second case i mean H value and to convert it into String in another table to diffise the whole number into 1 number/case in String tabe
+the way you can you can control any number while number is the order of Alph , so you just need to put some conditions and use the function at the end you need to saw which Alph = the number order and convert it frorm string number to string plaintext
