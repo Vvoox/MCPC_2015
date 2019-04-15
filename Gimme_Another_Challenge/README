@@ -1,0 +1,3 @@
+#Gimme_another_challenge
+This problem is consist of calculating the space between 2 arrays in table with no-decreasing
+the idea is simple , create an array and calculate from 1 and add the condition of existance of 0 and set on a new integer to calculae the space , that's it
